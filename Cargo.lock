@@ -992,6 +992,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "create-pda"
+version = "0.1.0"
+dependencies = [
+ "anchor-lang",
+]
+
+[[package]]
 name = "crossbeam-channel"
 version = "0.5.15"
 source = "registry+https://github.com/rust-lang/crates.io-index"
