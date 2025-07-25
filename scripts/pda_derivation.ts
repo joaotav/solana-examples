@@ -1,12 +1,20 @@
 import { PublicKey } from "@solana/web3.js";
 
-const programAddress = new PublicKey("11111111111111111111111111111111");
+// Creates a public key using an address
+const userWallet = new PublicKey("9WzDXwBbmkg8ZTbNMqUxvQRAyrZzDsGYdLVL9zYtAWWM");
 
-const seeds = [Buffer.from("helloWorld")];
+// Define an input seed for PDA derivation
+const seeds = [
+  Buffer.from("user_profile"),
+  userWallet.toBuffer()
+];
+
+// Derive a PDA using the seed and Program ID.
+// Receive the PDA and the canonical bump.
 const [pda, bump] = PublicKey.findProgramAddressSync(
   seeds,
-  programAddress
+  userWallet
 );
 
 console.log(`PDA: ${pda}`);
-console.log(`Bump: ${bump}`);
+console.log(`Canonical Bump: ${bump}`);
