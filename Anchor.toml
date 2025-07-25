@@ -5,27 +5,17 @@ package_manager = "yarn"
 resolution = true
 skip-lint = false
 
-# This specifies the program ID on localnet
 [programs.localnet]
+create-pda = "7LSQrnLwdGvkK1FMHSMuYRJSyVuK6t9kbzqKbSAGoN7K"
 hello-world = "9j4hBaQSzLMxdRKdPSveY7fwrPQwdUkvPf99tNyWBcGZ"
 solana_practice = "3TiJm6RVQks3ZJ2jYudgN586u51L6vnJjWNGSaCuBG7B"
 
 [registry]
 url = "https://api.apr.dev"
 
-
 [provider]
 cluster = "localnet"
-wallet = "~/.config/solana/dev-wallet.json" # Use this wallet to pay for storage and transactions on localnet
-
-# [providers.devnet]
-# cluster = "devnet"
-# wallet = "./keypairs/dev-wallet.json"
-
-# [providers.mainnet]
-# cluster = "mainnet"
-# wallet = "./keypairs/dev-wallet.json"
-
+wallet = "~/.config/solana/dev-wallet.json"
 
 [scripts]
 test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"
