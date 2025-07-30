@@ -6,6 +6,7 @@ resolution = true
 skip-lint = false
 
 [programs.localnet]
+anchor-counter = "3YBAAuxLMjGFUpYZMpJcLb1S2efo4A9v4RdatxvZvp9d"
 create-pda = "7LSQrnLwdGvkK1FMHSMuYRJSyVuK6t9kbzqKbSAGoN7K"
 hello-world = "9j4hBaQSzLMxdRKdPSveY7fwrPQwdUkvPf99tNyWBcGZ"
 solana_practice = "3TiJm6RVQks3ZJ2jYudgN586u51L6vnJjWNGSaCuBG7B"

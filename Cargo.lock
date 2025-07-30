@@ -210,6 +210,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "anchor-counter"
+version = "0.1.0"
+dependencies = [
+ "anchor-lang",
+]
+
+[[package]]
 name = "anchor-derive-accounts"
 version = "0.31.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
