@@ -1,5 +1,5 @@
-!.env.example
 .env*
+!.env.example
 .anchor
 .DS_Store
 target
