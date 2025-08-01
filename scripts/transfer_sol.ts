@@ -47,9 +47,9 @@ console.log("Receiver's initial balance:", `${receiverBalance}`);
 // Creates an instruction to transfer SOL between accounts.
 // Uses Solana's System Program
 const transferInstruction = SystemProgram.transfer({
-fromPubkey: sender.publicKey,
-toPubkey: receiver.publicKey,
-lamports: 0.01 * LAMPORTS_PER_SOL // transfers 0.01 SOL (10,000,000 lamports)
+  fromPubkey: sender.publicKey,
+  toPubkey: receiver.publicKey,
+  lamports: 0.01 * LAMPORTS_PER_SOL // transfers 0.01 SOL (10,000,000 lamports)
 });
 
 // Creates a new transaction object/container and adds the transfer instruction
@@ -61,9 +61,9 @@ const transaction = new Transaction().add(transferInstruction);
 // This function handles the recent_blockhash and other required metadata and then
 // sends the transaction to the network and waits for confirmation.
 const transactionSignature = await sendAndConfirmTransaction(
-connection,
-transaction,
-[sender] // signer keypair
+  connection,
+  transaction,
+  [sender] // signer keypair  
 );
 
 console.log("Transaction Signature:", `${transactionSignature}`);
