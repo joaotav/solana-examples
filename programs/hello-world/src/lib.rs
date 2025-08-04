@@ -3,7 +3,7 @@
 // account types, context types, error handling, commonly used traits and utility types.
 use anchor_lang::prelude::*;
 
-declare_id!("9j4hBaQSzLMxdRKdPSveY7fwrPQwdUkvPf99tNyWBcGZ");
+declare_id!("3QAUtmFmrPR7wx5ko54RD2g2xZF51PMsvWVfaKjRqW2Q");
 
 #[program]
 mod hello_anchor {

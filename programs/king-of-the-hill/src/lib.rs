@@ -1,7 +1,8 @@
 use anchor_lang::prelude::*;
 use anchor_lang::solana_program::system_instruction;
 use anchor_lang::solana_program::program::invoke;
-use anchor_lang::system_program::ID;
+
+declare_id!("iALpvVQS1CoqrFuoHopycSv8tUCZRu75dZbfWBYj9ny");
 
 #[program]
 pub mod king_of_the_hill {
