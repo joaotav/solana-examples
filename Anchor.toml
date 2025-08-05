@@ -10,8 +10,6 @@ anchor-counter = "3YBAAuxLMjGFUpYZMpJcLb1S2efo4A9v4RdatxvZvp9d"
 create-pda = "7LSQrnLwdGvkK1FMHSMuYRJSyVuK6t9kbzqKbSAGoN7K"
 hello-world = "9j4hBaQSzLMxdRKdPSveY7fwrPQwdUkvPf99tNyWBcGZ"
 king-of-the-hill = "98FYuAg1NBKfSJdDShkY41wg1yBrJaNTgbSgpqcRfzvT"
-solana_practice = "3TiJm6RVQks3ZJ2jYudgN586u51L6vnJjWNGSaCuBG7B"
-test-counter = "8n1UxqwGfZFEaMwpLyt5mj9yMBo3m8xtjr5zPwcBVZaZ"
 
 [registry]
 url = "https://api.apr.dev"
