@@ -21,4 +21,8 @@ cluster = "localnet"
 wallet = "~/.config/solana/dev-wallet.json"
 
 [scripts]
+# This command runs typescript tests. The glob pattern 'tests/**/*.ts' 
+# matches all .ts files in the 'tests/' directory and any subdirectories.
+# The -p flag tells ts-mocha to use a specific file as the project config
+# file. The -t flag sets the Mocha timeout to ~16 minutes for long tests.
 test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"
