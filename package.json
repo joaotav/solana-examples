@@ -2,7 +2,10 @@
   "license": "ISC",
   "scripts": {
     "lint:fix": "prettier */*.js \"*/**/*{.js,.ts}\" -w",
-    "lint": "prettier */*.js \"*/**/*{.js,.ts}\" --check"
+    "lint": "prettier */*.js \"*/**/*{.js,.ts}\" --check",
+    "test:king-of-the-hill": "dotenv -e .env.localnet -- bash -c 'anchor build --program-name king-of-the-hill && anchor deploy --program-name king-of-the-hill && yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/king-of-the-hill/king-of-the-hill.test.ts'",
+    "test:anchor-counter": "dotenv -e .env.localnet -- bash -c 'anchor build --program-name anchor-counter && anchor deploy --program-name anchor-counter && yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/anchor-counter/anchor-counter.test.ts'",
+    "test:create-pda": "dotenv -e .env.localnet -- bash -c 'anchor build --program-name create-pda && anchor deploy --program-name create-pda && yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/create-pda/create-pda.test.ts'"
   },
   "dependencies": {
     "@coral-xyz/anchor": "^0.31.1",
