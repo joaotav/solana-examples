@@ -7,7 +7,7 @@ import { expect } from "chai";
 // Import auto generated typescript types from the anchor-counter program IDL
 import { AnchorCounter } from "../target/types/anchor_counter";
 
-// "describe" groups related tests together into a test suite. The firs argument is a
+// "describe" groups related tests together into a test suite. The first argument is a
 // description of what is being tested, the second is a function containing the tests.
 describe("anchor-counter", () => {
     // Configure the network provider according to the current environment, in order:
