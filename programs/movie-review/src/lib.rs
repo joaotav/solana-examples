@@ -120,10 +120,25 @@ pub struct UpdateMovieReview<'info> {
         realloc::payer = reviewer,
         realloc::zero = true,
     )]
-    pub movie_review: Account<'info, MovieAcccountState>,
+    pub movie_review: Account<'info, MovieReviewData>,
     #[account(mut)]
     reviewer: Signer<'info>,
     system_program: Program<'info, System>,
+}
+
+#[derive(Accounts)]
+#[instruction(title: String)]
+pub struct DeleteMovieReview<'info> {
+    #[account(
+        mut,
+        seeds = [title.as_bytes(), initializer.key().as_ref()],
+        bump,
+        close = reviewer
+    )]
+    pub movie_review: Account<'info, MovieReviewData>,
+    #[account(mut)]
+    pub reviewer: Signer<'info>,
+    pub system_program: Program<'info, System>,
 }
 
 #[account]
