@@ -4,6 +4,7 @@ package_manager = "yarn"
 [features]
 resolution = true
 skip-lint = false
+seeds = true
 
 [programs.localnet]
 anchor-counter = "3YBAAuxLMjGFUpYZMpJcLb1S2efo4A9v4RdatxvZvp9d"

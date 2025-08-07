@@ -3,7 +3,7 @@ import * as anchor from "@coral-xyz/anchor";
 // Typescript type for strongly-typed program interactions
 import { Program } from "@coral-xyz/anchor";
 // Import auto generated typescript types from the king-of-the-hill program IDL
-import { KingOfTheHill } from "../target/types/king_of_the_hill";
+import { KingOfTheHill } from "../../target/types/king_of_the_hill";
 // Chai assertion library for testing
 import { assert } from "chai";
 

@@ -9,7 +9,7 @@ const MAX_DESCRIPTION_LENGTH: usize = 200;
 const DISCRIMINATOR: usize = 8;
 
 #[program]
-pub mod movie_review {
+pub mod movie_review_program {
     use super::*;
 
     pub fn add_movie_review(
