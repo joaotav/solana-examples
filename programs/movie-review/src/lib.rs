@@ -79,6 +79,15 @@ pub mod movie_review {
 
         Ok(())
     }
+
+    pub fn delete_movie_review(_ctx: Context<DeleteMovieReview>, title: String) -> Result<()> {
+        // Because we are closing the account we don't need any instruction logic inside the body
+        // of the function. The account closing will be handled by the 'close' constraint in the
+        // DeleteMovieReview struct.
+        msg!("Movie review for {} deleted", title);
+        Ok(())
+    }
+
 }
 
 #[derive(Accounts)]
