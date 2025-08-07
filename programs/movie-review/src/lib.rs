@@ -46,11 +46,44 @@ pub mod movie_review {
 
         Ok(())
     }
+
+    pub fn update_movie_review(
+        ctx: Context<UpdateMovieReview>, 
+        title: String, 
+        description: String, 
+        rating: u8
+    ) -> Result<()> {
+        require!(
+            rating >= MIN_RATING && rating <= MAX_RATING,
+            MovieReviewError::InvalidRating
+        );
+
+        require!(
+            title.len() <= MAX_TITLE_LENGTH,
+            MovieReviewError::TitleTooLong
+        );
+
+        require!(
+            description.len() <= MAX_DESCRIPTION_LENGTH,
+            MovieReviewError::DescriptionTooLong
+        );
+
+        let movie_review = &mut ctx.accounts.movie_review;
+        movie_review.description = description;
+        movie_review.rating = rating;
+
+        msg!("Movie review updated.");
+        msg!("Title: {}", movie_review.title);
+        msg!("Description: {}", movie_review.description);
+        msg!("Rating: {}", movie_review.rating);
+
+        Ok(())
+    }
 }
 
 #[derive(Accounts)]
 #[instruction(title: String)]
-pub struct MovieReview<'info> {
+pub struct AddMovieReview<'info> {
     #[account(
         init, 
         seeds = [title.as_bytes(), reviewer.key().as_ref()], 
