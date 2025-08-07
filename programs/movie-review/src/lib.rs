@@ -19,3 +19,13 @@ pub struct MovieAccountState {
 }
 
 const DISCRIMINATOR: usize = 8;
+
+#[error_code]
+enum MovieReviewError {
+    #[msg("Rating must be between 1 and 10")]
+    InvalidRating,
+    #[msg("Movie title too long")]
+    TitleTooLong,
+    #[msg("Description too long")]
+    DescriptionTooLong,
+}
