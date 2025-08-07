@@ -98,6 +98,25 @@ pub struct AddMovieReview<'info> {
 
 }
 
+#[derive(Accounts)]
+#[instruction(title: String)]
+pub struct UpdateMovieReview<'info> {
+    #[account(
+        mut,
+        seeds = [title.as_bytes(), initializer.key().as_ref()],
+        bump,
+        realloc = DISCRIMINATOR + MovieReviewData::INIT_SPACE,
+        // Set the reviewer as the payer for any additional lamports required for rent 
+        // exemption in case the new description is larger than the previous one.
+        realloc::payer = reviewer,
+        realloc::zero = true,
+    )]
+    pub movie_review: Account<'info, MovieAcccountState>,
+    #[account(mut)]
+    reviewer: Signer<'info>,
+    system_program: Program<'info, System>,
+}
+
 #[account]
 #[derive(InitSpace)]
 pub struct MovieReviewData {
