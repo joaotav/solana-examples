@@ -34,24 +34,41 @@ pub mod movie_review {
         );
 
         let movie_review = &mut ctx.accounts.movie_review;
-        movie_review.reviewer = ctx.accounts.initializer.key();
+        movie_review.reviewer = ctx.accounts.reviewer.key();
         movie_review.title = title;
         movie_review.description = description;
         movie_review.rating = rating;
 
         msg!("Movie review account created.");
-        msg!("Title: {}", title);
-        msg!("Description: {}", description);
-        msg!("Rating: {}", rating);
+        msg!("Title: {}", movie_review.title);
+        msg!("Description: {}", movie_review.description);
+        msg!("Rating: {}", movie_review.rating);
 
         Ok(())
     }
 }
 
+#[derive(Accounts)]
+#[instruction(title: String)]
+pub struct MovieReview<'info> {
+    #[account(
+        init, 
+        seeds = [title.as_bytes(), reviewer.key().as_ref()], 
+        bump, 
+        payer = reviewer, 
+        space = DISCRIMINATOR + MovieReviewData::INIT_SPACE,
+    )]
+    pub movie_review: Account<'info, MovieReviewData>,
+    #[account(mut)]
+    pub reviewer: Signer<'info>,
+    pub system_program: Program<'info, System>,
+
+}
+
 #[account]
 #[derive(InitSpace)]
-pub struct MovieAccountState {
-    pub review: Pubkey, // 32 bytes
+pub struct MovieReviewData {
+    pub reviewer: Pubkey, // 32 bytes
     #[max_len(MAX_TITLE_LENGTH)]
     pub title: String, // 4 + len()
     #[max_len(MAX_DESCRIPTION_LENGTH)]
