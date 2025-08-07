@@ -13,7 +13,7 @@ pub mod movie_review {
     use super::*;
 
     pub fn add_movie_review(
-        ctx: Context<MovieReview>,
+        ctx: Context<AddMovieReview>,
         title: String,
         description: String,
         rating: u8,
@@ -112,7 +112,7 @@ pub struct AddMovieReview<'info> {
 pub struct UpdateMovieReview<'info> {
     #[account(
         mut,
-        seeds = [title.as_bytes(), initializer.key().as_ref()],
+        seeds = [title.as_bytes(), reviewer.key().as_ref()],
         bump,
         realloc = DISCRIMINATOR + MovieReviewData::INIT_SPACE,
         // Set the reviewer as the payer for any additional lamports required for rent 
@@ -122,8 +122,8 @@ pub struct UpdateMovieReview<'info> {
     )]
     pub movie_review: Account<'info, MovieReviewData>,
     #[account(mut)]
-    reviewer: Signer<'info>,
-    system_program: Program<'info, System>,
+    pub reviewer: Signer<'info>,
+    pub system_program: Program<'info, System>,
 }
 
 #[derive(Accounts)]
@@ -131,7 +131,7 @@ pub struct UpdateMovieReview<'info> {
 pub struct DeleteMovieReview<'info> {
     #[account(
         mut,
-        seeds = [title.as_bytes(), initializer.key().as_ref()],
+        seeds = [title.as_bytes(), reviewer.key().as_ref()],
         bump,
         close = reviewer
     )]
